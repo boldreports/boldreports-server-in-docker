@@ -1,6 +1,6 @@
 services:
   boldreports:
-   image: syncfusion/boldreports
+   image: syncfusion/boldreports:15.1.10
    restart: always
    ports:
      - 8090:80
