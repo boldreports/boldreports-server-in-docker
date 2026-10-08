@@ -239,6 +239,8 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
          - reports-jobs
          - reports-designerservice
          - reports-etl
+         - reports-ai
+         - reports-mcp
    pgdb:
       image: postgres:17
       restart: always
