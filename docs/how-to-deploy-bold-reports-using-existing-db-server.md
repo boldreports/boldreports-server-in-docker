@@ -4,7 +4,7 @@ In the following section, we are going to run the Bold Reports application by pa
 
 1. Download docker compose file using the following command.
    ```sh
-   curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container-with-env-variable/docker-compose.yml"
+   curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/v15.1.10/deploy/single-container-with-env-variable/docker-compose.yml"
    ```
 
    **Environment variable Usage:**
