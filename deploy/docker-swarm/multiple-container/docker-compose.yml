@@ -244,6 +244,10 @@ services:
         condition: service_healthy
       reports-etl
         condition: service_healthy
+      reports-ai:
+        condition: service_started
+      reports-mcp:
+        condition: service_started
   pgdb:
     image: postgres:17
     restart: always
