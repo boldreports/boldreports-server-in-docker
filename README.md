@@ -38,8 +38,8 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 | Tags  | Last Modified(MM/DD/YYYY)| Purpose |
 | ------------- | ------------- | ------------- |
-| `15.1.10-eval` | 08/27/2026 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
-| `15.1.10`, `latest` | 08/27/2026 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
+| `15.1.10-eval` | 10/08/2026 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
+| `15.1.10`, `latest` | 10/08/2026 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
 
 # Deploying Bold Reports Evaluation Image Using Docker Compose
 
