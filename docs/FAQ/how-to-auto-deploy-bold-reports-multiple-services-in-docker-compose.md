@@ -5,7 +5,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 1. Create an empty project directory.
    You can name the directory something easy for you to remember. This directory is the context for your application image. This project directory should contains a `docker-compose.yml` file which is complete in itself for a good starter BoldReports project.
 
-2. Download the configuration files [here](https://github.com/boldreports/bold-reports-docker/tree/master/deploy/multiple-container). This directory includes docker-compose YML file and configuration file for Nginx.
+2. Download the configuration files [here](https://github.com/boldreports/bold-reports-docker/tree/v15.1.10/deploy/multiple-container). This directory includes docker-compose YML file and configuration file for Nginx.
    > **Tip:** You can use either a `.yml` or `.yaml` extension for this file. They both works well.
 
 3. Change into your project directory. For example, if you named your directory my_boldreports
@@ -19,7 +19,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
      services:
        id-web:
          container_name: id_web_container
-         image: us-docker.pkg.dev/boldreports/v7-1-9/bold-identity:7.1.9
+         image: syncfusion/bold-identity:15.1.10
          restart: on-failure
          environment:
            # Required
@@ -38,7 +38,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
      id-api:
        container_name: id_api_container
-       image: us-docker.pkg.dev/boldreports/v7-1-9/bold-identity-api:7.1.9
+       image: syncfusion/bold-identity-api:15.1.10
        restart: on-failure
        volumes: 
          - boldservices_data:/application/app_data
@@ -54,7 +54,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    id-ums:
       container_name: id_ums_container
-      image: us-docker.pkg.dev/boldreports/v7-1-9/bold-ums:7.1.9
+      image: syncfusion/bold-ums:15.1.10
       restart: on-failure
       environment:
          - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
@@ -81,7 +81,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-web:
       container_name: reports_web_container
-      image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server:7.1.9
+      image: syncfusion/boldreports-server:15.1.10
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -97,7 +97,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-api:
       container_name: reports_api_container
-      image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server-api:7.1.9
+      image: syncfusion/boldreports-server-api:15.1.10
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -114,7 +114,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-jobs:
       container_name: reports_jobs_container
-      image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server-jobs:7.1.9
+      image: syncfusion/boldreports-server-jobs:15.1.10
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -131,7 +131,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-viewer:
       container_name: reports_viewer_container
-      image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-viewer:7.1.9
+      image: syncfusion/boldreports-viewer:15.1.10
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -148,7 +148,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-designerservice:
       container_name: reports_dataservice_container
-      image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-designer:7.1.9
+      image: syncfusion/boldreports-designer:15.1.10
       restart: on-failure
       volumes:
          - boldservices_data:/application/app_data
@@ -165,7 +165,41 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-etl:
       container_name: reports_etl_container
-      image: us-docker.pkg.dev/boldreports/v7-1-9/bold-etl:7.1.9
+      image: syncfusion/bold-etl:15.1.10
+      restart: on-failure
+      volumes:
+         - boldservices_data:/application/app_data
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+         - reports-web
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+   
+   reports-ai:
+      container_name: reports_ai_container
+      image: syncfusion/boldreports-ai:15.1.10
+      restart: on-failure
+      volumes:
+         - boldservices_data:/application/app_data
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+         - reports-web
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+   
+   reports-mcp:
+      container_name: reports_mcp_container
+      image: syncfusion/boldreports-mcp-server:15.1.10
       restart: on-failure
       volumes:
          - boldservices_data:/application/app_data
