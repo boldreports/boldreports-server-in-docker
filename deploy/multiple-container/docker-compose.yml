@@ -182,9 +182,9 @@ services:
     networks:
       - boldservices
     depends_on:
-      id-web
+      id-web:
         condition: service_healthy
-      reports-web
+      reports-web:
         condition: service_healthy
     healthcheck:
         test: ["CMD", "curl", "-f", "http://localhost/health-check"]
@@ -201,9 +201,9 @@ services:
     networks:
       - boldservices
     depends_on:
-      id-web
+      id-web:
         condition: service_healthy
-      reports-web
+      reports-web:
         condition: service_healthy
     healthcheck:
         test: ["CMD", "curl", "-f", "http://localhost/health-check"]
