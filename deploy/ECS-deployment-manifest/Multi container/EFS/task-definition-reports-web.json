@@ -30,7 +30,8 @@
                 { "name": "REPORTS_DESIGNER_SERVICE_URL", "value": "http://reports-reportservice-service:6553/reporting/reportservice" },
                 { "name": "REPORTS_VIEWER_SERVICE_URL", "value": "http://reports-viewer-service:6554/reporting/viewer" },
                 { "name": "REPORTS_AI_SERVICE_URL", "value": "http://reports-ai-service:6555/reportsai" },
-                { "name": "REPORTS_MCP_SERVICE_URL", "value": "http://reports-mcp-service:6556/reportsmcp" }
+                { "name": "REPORTS_MCP_SERVICE_URL", "value": "http://reports-mcp-service:6556/reportsmcp" },
+                { "name": "REPORTS_EXPORT_SERVICE_URL", "value": "http://reports-export-service:6557/reporting/export" }
             ],
             "mountPoints": [
                 {

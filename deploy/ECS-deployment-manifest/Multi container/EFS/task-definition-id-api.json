@@ -31,7 +31,8 @@
                 { "name": "ID_WEB_SERVICE_URL", "value": "http://id-web-service:6000" },
                 { "name": "BOLD_ETL_BLAZOR_SERVICE_URL", "value": "http://bold-etl-service:6009/framework/blazor.server.js" },
                 { "name": "ID_UMS_SERVICE_URL", "value": "http://id-ums-service:6002/ums" },
-                { "name": "REPORTS_MCP_SERVICE_URL", "value": "http://reports-mcp-service:6556/reportsmcp" }
+                { "name": "REPORTS_MCP_SERVICE_URL", "value": "http://reports-mcp-service:6556/reportsmcp" },
+                { "name": "REPORTS_EXPORT_SERVICE_URL", "value": "http://reports-export-service:6557/reporting/export" }
             ],
             "mountPoints": [
                 {
