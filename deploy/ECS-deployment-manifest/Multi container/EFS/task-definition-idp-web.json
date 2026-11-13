@@ -32,7 +32,8 @@
                 { "name": "REPORTS_VIEWER_SERVICE_URL", "value": "http://reports-viewer-service:6554/reporting/viewer" },
                 { "name": "REPORTS_AI_SERVICE_URL", "value": "http://reports-ai-service:6555/reportsai" },
                 { "name": "INSTALL_OPTIONAL_LIBS", "value": "mysql,oracle,postgresql,snowflake,googlebigquery" },
-                { "name": "REPORTS_MCP_SERVICE_URL", "value": "http://reports-mcp-service:6556/reportsmcp" }
+                { "name": "REPORTS_MCP_SERVICE_URL", "value": "http://reports-mcp-service:6556/reportsmcp" },
+                { "name": "REPORTS_EXPORT_SERVICE_URL", "value": "http://reports-export-service:6557/reporting/export" }
             ],
             "mountPoints": [
                 {

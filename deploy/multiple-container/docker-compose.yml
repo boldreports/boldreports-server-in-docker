@@ -154,6 +154,25 @@ services:
         timeout: 10s
         retries: 5
 
+  reports-export:
+    container_name: reports_export_container
+    image: syncfusion/boldreports-export:15.1.10
+    restart: on-failure
+    volumes:
+      - boldservices_data:/application/app_data
+    networks:
+      - boldservices
+    depends_on:
+      id-web:
+        condition: service_healthy
+      reports-web:
+        condition: service_started
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+
   reports-etl:
     container_name: reports_etl_container
     image: syncfusion/bold-etl:15.1.10
@@ -243,6 +262,8 @@ services:
       reports-reportservice:
         condition: service_started
       reports-viewer:
+        condition: service_started
+      reports-export:
         condition: service_started
       reports-etl:
         condition: service_started
